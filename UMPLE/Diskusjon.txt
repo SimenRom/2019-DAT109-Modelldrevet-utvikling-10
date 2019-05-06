@@ -1,5 +1,16 @@
 Koden me lagde sjølv til prosjektet var skreddersydd til den jobben me ville ha gjort. 
-Me lagde berre dei metodene som ville 
+Me lagde altså berre dei metodene som ville bli brukt i applikasjonen, og dersom
+me seinare fant ut at me trengte nye metodar la me til dei.
+
+Med UMPLE Online sitt verktøy kunne me skrive mykje mindre og få ut mykje meir kode. 
+Dette var veldig mykje meir effektivt og sikrare arbeid. 
+
+Metoder som blir laget med UMPLE er standariserte, så de kan ikkje bli missforstått.
+
+
+Me fant ut at SQL som blei generert var vanskelig å lese. Me skulle sette 
+inn "records" i tabellene, men måtte bruke tid på å finne ut korleis databasen var 
+designet av UMPLE før me kunne sette inn.
 
 
 - det som var nødvendig
