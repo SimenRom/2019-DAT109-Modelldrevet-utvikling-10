@@ -1,0 +1,14 @@
+class Stand
+{
+  String standId;
+  String navn;
+  key{standId}
+}
+ 
+class Vote
+{
+  String brukerId;
+  Integer vekt;
+  * -- 1 Stand;
+  key{brukerId, stand}
+}

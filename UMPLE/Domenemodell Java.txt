@@ -1,0 +1,412 @@
+//%% NEW FILE Stand BEGINS HERE %%
+
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.29.1.4450.6749b7105 modeling language!*/
+
+
+import java.util.*;
+
+// line 2 "model.ump"
+// line 17 "model.ump"
+public class Stand
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Stand Attributes
+  private String standId;
+  private String navn;
+
+  //Stand Associations
+  private List<Vote> votes;
+
+  //Helper Variables
+  private int cachedHashCode;
+  private boolean canSetStandId;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Stand(String aStandId, String aNavn)
+  {
+    cachedHashCode = -1;
+    canSetStandId = true;
+    standId = aStandId;
+    navn = aNavn;
+    votes = new ArrayList<Vote>();
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setStandId(String aStandId)
+  {
+    boolean wasSet = false;
+    if (!canSetStandId) { return false; }
+    standId = aStandId;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setNavn(String aNavn)
+  {
+    boolean wasSet = false;
+    navn = aNavn;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getStandId()
+  {
+    return standId;
+  }
+
+  public String getNavn()
+  {
+    return navn;
+  }
+  /* Code from template association_GetMany */
+  public Vote getVote(int index)
+  {
+    Vote aVote = votes.get(index);
+    return aVote;
+  }
+
+  public List<Vote> getVotes()
+  {
+    List<Vote> newVotes = Collections.unmodifiableList(votes);
+    return newVotes;
+  }
+
+  public int numberOfVotes()
+  {
+    int number = votes.size();
+    return number;
+  }
+
+  public boolean hasVotes()
+  {
+    boolean has = votes.size() > 0;
+    return has;
+  }
+
+  public int indexOfVote(Vote aVote)
+  {
+    int index = votes.indexOf(aVote);
+    return index;
+  }
+  /* Code from template association_MinimumNumberOfMethod */
+  public static int minimumNumberOfVotes()
+  {
+    return 0;
+  }
+  /* Code from template association_AddManyToOne */
+  public Vote addVote(String aBrukerId, int aVekt)
+  {
+    return new Vote(aBrukerId, aVekt, this);
+  }
+
+  public boolean addVote(Vote aVote)
+  {
+    boolean wasAdded = false;
+    if (votes.contains(aVote)) { return false; }
+    Stand existingStand = aVote.getStand();
+    boolean isNewStand = existingStand != null && !this.equals(existingStand);
+    if (isNewStand)
+    {
+      aVote.setStand(this);
+    }
+    else
+    {
+      votes.add(aVote);
+    }
+    wasAdded = true;
+    return wasAdded;
+  }
+
+  public boolean removeVote(Vote aVote)
+  {
+    boolean wasRemoved = false;
+    //Unable to remove aVote, as it must always have a stand
+    if (!this.equals(aVote.getStand()))
+    {
+      votes.remove(aVote);
+      wasRemoved = true;
+    }
+    return wasRemoved;
+  }
+  /* Code from template association_AddIndexControlFunctions */
+  public boolean addVoteAt(Vote aVote, int index)
+  {  
+    boolean wasAdded = false;
+    if(addVote(aVote))
+    {
+      if(index < 0 ) { index = 0; }
+      if(index > numberOfVotes()) { index = numberOfVotes() - 1; }
+      votes.remove(aVote);
+      votes.add(index, aVote);
+      wasAdded = true;
+    }
+    return wasAdded;
+  }
+
+  public boolean addOrMoveVoteAt(Vote aVote, int index)
+  {
+    boolean wasAdded = false;
+    if(votes.contains(aVote))
+    {
+      if(index < 0 ) { index = 0; }
+      if(index > numberOfVotes()) { index = numberOfVotes() - 1; }
+      votes.remove(aVote);
+      votes.add(index, aVote);
+      wasAdded = true;
+    } 
+    else 
+    {
+      wasAdded = addVoteAt(aVote, index);
+    }
+    return wasAdded;
+  }
+
+  public boolean equals(Object obj)
+  {
+    if (obj == null) { return false; }
+    if (!getClass().equals(obj.getClass())) { return false; }
+
+    Stand compareTo = (Stand)obj;
+  
+    if (getStandId() == null && compareTo.getStandId() != null)
+    {
+      return false;
+    }
+    else if (getStandId() != null && !getStandId().equals(compareTo.getStandId()))
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+  public int hashCode()
+  {
+    if (cachedHashCode != -1)
+    {
+      return cachedHashCode;
+    }
+    cachedHashCode = 17;
+    if (getStandId() != null)
+    {
+      cachedHashCode = cachedHashCode * 23 + getStandId().hashCode();
+    }
+    else
+    {
+      cachedHashCode = cachedHashCode * 23;
+    }
+
+    canSetStandId = false;
+    return cachedHashCode;
+  }
+
+  public void delete()
+  {
+    for(int i=votes.size(); i > 0; i--)
+    {
+      Vote aVote = votes.get(i - 1);
+      aVote.delete();
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "standId" + ":" + getStandId()+ "," +
+            "navn" + ":" + getNavn()+ "]";
+  }
+}
+
+
+
+//%% NEW FILE Vote BEGINS HERE %%
+
+/*PLEASE DO NOT EDIT THIS CODE*/
+/*This code was generated using the UMPLE 1.29.1.4450.6749b7105 modeling language!*/
+
+
+
+// line 9 "model.ump"
+// line 22 "model.ump"
+public class Vote
+{
+
+  //------------------------
+  // MEMBER VARIABLES
+  //------------------------
+
+  //Vote Attributes
+  private String brukerId;
+  private int vekt;
+
+  //Vote Associations
+  private Stand stand;
+
+  //Helper Variables
+  private int cachedHashCode;
+  private boolean canSetBrukerId;
+  private boolean canSetStand;
+
+  //------------------------
+  // CONSTRUCTOR
+  //------------------------
+
+  public Vote(String aBrukerId, int aVekt, Stand aStand)
+  {
+    cachedHashCode = -1;
+    canSetBrukerId = true;
+    canSetStand = true;
+    brukerId = aBrukerId;
+    vekt = aVekt;
+    boolean didAddStand = setStand(aStand);
+    if (!didAddStand)
+    {
+      throw new RuntimeException("Unable to create vote due to stand");
+    }
+  }
+
+  //------------------------
+  // INTERFACE
+  //------------------------
+
+  public boolean setBrukerId(String aBrukerId)
+  {
+    boolean wasSet = false;
+    if (!canSetBrukerId) { return false; }
+    brukerId = aBrukerId;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean setVekt(int aVekt)
+  {
+    boolean wasSet = false;
+    vekt = aVekt;
+    wasSet = true;
+    return wasSet;
+  }
+
+  public String getBrukerId()
+  {
+    return brukerId;
+  }
+
+  public int getVekt()
+  {
+    return vekt;
+  }
+  /* Code from template association_GetOne */
+  public Stand getStand()
+  {
+    return stand;
+  }
+  /* Code from template association_SetOneToMany */
+  public boolean setStand(Stand aStand)
+  {
+    boolean wasSet = false;
+    if (!canSetStand) { return false; }
+    if (aStand == null)
+    {
+      return wasSet;
+    }
+
+    Stand existingStand = stand;
+    stand = aStand;
+    if (existingStand != null && !existingStand.equals(aStand))
+    {
+      existingStand.removeVote(this);
+    }
+    stand.addVote(this);
+    wasSet = true;
+    return wasSet;
+  }
+
+  public boolean equals(Object obj)
+  {
+    if (obj == null) { return false; }
+    if (!getClass().equals(obj.getClass())) { return false; }
+
+    Vote compareTo = (Vote)obj;
+  
+    if (getBrukerId() == null && compareTo.getBrukerId() != null)
+    {
+      return false;
+    }
+    else if (getBrukerId() != null && !getBrukerId().equals(compareTo.getBrukerId()))
+    {
+      return false;
+    }
+
+    if (getStand() == null && compareTo.getStand() != null)
+    {
+      return false;
+    }
+    else if (getStand() != null && !getStand().equals(compareTo.getStand()))
+    {
+      return false;
+    }
+
+    return true;
+  }
+
+  public int hashCode()
+  {
+    if (cachedHashCode != -1)
+    {
+      return cachedHashCode;
+    }
+    cachedHashCode = 17;
+    if (getBrukerId() != null)
+    {
+      cachedHashCode = cachedHashCode * 23 + getBrukerId().hashCode();
+    }
+    else
+    {
+      cachedHashCode = cachedHashCode * 23;
+    }
+
+    if (getStand() != null)
+    {
+      cachedHashCode = cachedHashCode * 23 + getStand().hashCode();
+    }
+    else
+    {
+      cachedHashCode = cachedHashCode * 23;
+    }
+
+    canSetBrukerId = false;
+    canSetStand = false;
+    return cachedHashCode;
+  }
+
+  public void delete()
+  {
+    Stand placeholderStand = stand;
+    this.stand = null;
+    if(placeholderStand != null)
+    {
+      placeholderStand.removeVote(this);
+    }
+  }
+
+
+  public String toString()
+  {
+    return super.toString() + "["+
+            "brukerId" + ":" + getBrukerId()+ "," +
+            "vekt" + ":" + getVekt()+ "]" + System.getProperties().getProperty("line.separator") +
+            "  " + "stand = "+(getStand()!=null?Integer.toHexString(System.identityHashCode(getStand())):"null");
+  }
+}
