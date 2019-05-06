@@ -1,0 +1,10 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="230" gr:y="380" id="sv1#area3" name="Shopping Cart Area" landmark="true" defaultPage="sv1#area3#page7">
+  <OperationUnits>
+    <ModuleInstanceUnit gr:x="210" gr:y="140" id="sv1#area3#miu1" action="true" name="Empty The Cart" linkOrder="sv1#area3#miu1#ln6">
+      <Link id="sv1#area3#miu1#ln6" name="Flow6" to="sv1#area3#page8#dau3" automaticCoupling="true" type="transport" validate="true"/>
+    </ModuleInstanceUnit>
+    <ModuleInstanceUnit gr:x="305" gr:y="20" id="sv1#area3#miu2" action="true" name="Update the Quantities" linkOrder="sv1#area3#miu2#ln9">
+      <Link id="sv1#area3#miu2#ln9" name="Flow9" to="sv1#area3#page7" automaticCoupling="true" type="transport" validate="true" gr:bendpoints="-197,-43,143,-58"/>
+    </ModuleInstanceUnit>
+  </OperationUnits>
+</Area>

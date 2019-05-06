@@ -1,0 +1,44 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="0" gr:y="5" id="sv1#area2#page6" name="ProductCategories" landmark="true">
+  <ContentUnits>
+    <PowerIndexUnit gr:x="0" gr:y="0" id="sv1#area2#page6#pwu4" name="CategoryList" sortable="true" checkable="false" useCountQuery="false" linkOrder="sv1#area2#page6#pwu4#ln4" entity="ent3">
+      <Link id="sv1#area2#page6#pwu4#ln4" name="SelectedCategory -&gt; Category" to="sv1#area2#page3#pwu3" type="normal" validate="true" newWindow="false" ajaxEnabled="false">
+        <LinkParameter id="sv1#area2#page6#pwu4#ln4#par6" name="name_PASSING" source="data[].ent3#att1" passing="true"/>
+        <LinkParameter id="sv1#area2#page6#pwu4#ln4#par7" name="name_current ProductID" source="data[].ent3#att1" target="sv1#area2#page3#pwu3.current.ent2#att2"/>
+      </Link>
+    </PowerIndexUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv1#area2#page6#pwu4">
+          <layout:Link link="sv1#area2#page6#pwu4#ln4"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12"/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>
