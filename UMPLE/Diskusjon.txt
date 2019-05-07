@@ -13,8 +13,3 @@ metode skal gjøre noke, så gjør den alltid det.
 Me fant ut at SQL som blei generert var vanskelig å lese. Me skulle sette 
 inn "records" i tabellene, men måtte bruke tid på å finne ut korleis databasen var 
 designet av UMPLE før me kunne sette inn.
-
-
-
-- det som var nødvendig
-- hva som er forskjellig og hvordan
