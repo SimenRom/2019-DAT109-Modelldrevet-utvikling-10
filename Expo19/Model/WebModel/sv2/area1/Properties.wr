@@ -1,0 +1,6 @@
+<Area xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="550" gr:y="160" id="sv2#area1" name="Area 1" landmark="true" landmarks="sv2#area1#page3 sv2#area1#miu3" defaultPage="sv2#area1#miu3">
+  <OperationUnits>
+    <ModuleInstanceUnit gr:x="305" gr:y="325" id="sv2#area1#miu3" action="true" moduleId="mov1#opm3" landmark="true"/>
+    <ModuleInstanceUnit gr:x="0" gr:y="10" id="sv2#area1#miu4" action="true" name="LeggTilStand" moduleId="mov1#opm2"/>
+  </OperationUnits>
+</Area>

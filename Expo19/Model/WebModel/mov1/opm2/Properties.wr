@@ -1,0 +1,28 @@
+<OperationModule xmlns:gr="http://www.webratio.com/2006/WebML/Graph" gr:x="275" gr:y="205" id="mov1#opm2" name="OpprettStand">
+  <OperationUnits>
+    <InputCollectorUnit id="mov1#opm2#icu2" gr:x="30" gr:y="60">
+      <OKLink id="mov1#opm2#icu2#oln1" name="OKFlow1" to="mov1#opm2#cru1" automaticCoupling="false">
+        <LinkParameter id="mov1#opm2#icu2#oln1#par1" name="Stand.standId(VoteToStand)" source="mov1#opm2#icu2#icp1" target="mov1#opm2#cru1.rel2#role3.ent1#att1"/>
+        <LinkParameter id="mov1#opm2#icu2#oln1#par2" name="Vote Object" source="mov1#opm2#icu2#icp2" target="mov1#opm2#cru1.entityBeans"/>
+        <LinkParameter id="mov1#opm2#icu2#oln1#par3" name="brukerId" source="mov1#opm2#icu2#icp3" target="mov1#opm2#cru1.ent2#att4"/>
+        <LinkParameter id="mov1#opm2#icu2#oln1#par4" name="standStandId" source="mov1#opm2#icu2#icp4" target="mov1#opm2#cru1.ent2#att3"/>
+        <LinkParameter id="mov1#opm2#icu2#oln1#par5" name="vekt" source="mov1#opm2#icu2#icp5" target="mov1#opm2#cru1.ent2#att5"/>
+      </OKLink>
+      <InputCollectorParameter id="mov1#opm2#icu2#icp1" name="Stand.standId(VoteToStand)"/>
+      <InputCollectorParameter id="mov1#opm2#icu2#icp2" name="Vote Object"/>
+      <InputCollectorParameter id="mov1#opm2#icu2#icp3" name="brukerId"/>
+      <InputCollectorParameter id="mov1#opm2#icu2#icp4" name="standStandId"/>
+      <InputCollectorParameter id="mov1#opm2#icu2#icp5" name="vekt"/>
+    </InputCollectorUnit>
+    <CreateUnit gr:x="275" gr:y="140" id="mov1#opm2#cru1" name="Lag  Stemme" entity="ent2">
+      <OKLink id="mov1#opm2#cru1#oln2" name="OKFlow2" to="mov1#opm2#okcu1">
+        <LinkParameter id="mov1#opm2#cru1#oln2#par6" name="standstandId_voteid" sourceValue="standStandId" target="mov1#opm2#okcu1#ocp1"/>
+      </OKLink>
+      <KOLink id="mov1#opm2#cru1#kln1" name="KOFlow1" to="mov1#opm2#kocu1" automaticCoupling="true"/>
+    </CreateUnit>
+    <OKCollectorUnit gr:x="445" gr:y="95" id="mov1#opm2#okcu1" name="ok">
+      <OutputCollectorParameter id="mov1#opm2#okcu1#ocp1" name="voteid"/>
+    </OKCollectorUnit>
+    <KOCollectorUnit gr:x="475" gr:y="195" id="mov1#opm2#kocu1" name="notok"/>
+  </OperationUnits>
+</OperationModule>

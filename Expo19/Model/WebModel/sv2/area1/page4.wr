@@ -1,0 +1,60 @@
+<Page xmlns:gr="http://www.webratio.com/2006/WebML/Graph" xmlns:layout="http://www.webratio.com/2006/WebML/Layout" gr:x="35" gr:y="165" id="sv2#area1#page4" name="GiStemme">
+  <ContentUnits>
+    <DataUnit gr:x="0" gr:y="0" id="sv2#area1#page4#dau2" name="StandInfo" entity="ent1" displayAttributes="ent1#att2">
+      <Selector id="sv2#area1#page4#dau2#su2" defaultPolicy="fill" booleanOperator="and">
+        <KeyCondition id="sv2#area1#page4#dau2#su2#kcond2" name="KeyCondition1" predicate="in" implied="false"/>
+      </Selector>
+    </DataUnit>
+    <EntryUnit gr:x="15" gr:y="145" id="sv2#area1#page4#enu4" name="GiVekt" fieldOrder="sv2#area1#page4#enu4#msfld2" linkOrder="sv2#area1#page4#enu4#ln10">
+      <MultiSelectionField id="sv2#area1#page4#enu4#msfld2" name="Multi Selection Field1" type="integer" modifiable="true" preselectValue="3" slotOrder="sv2#area1#page4#enu4#msfld2#slot12 sv2#area1#page4#enu4#msfld2#slot7 sv2#area1#page4#enu4#msfld2#slot8 sv2#area1#page4#enu4#msfld2#slot9 sv2#area1#page4#enu4#msfld2#slot10 sv2#area1#page4#enu4#msfld2#slot11">
+        <Slot id="sv2#area1#page4#enu4#msfld2#slot7" name="1" label="true" output="true"/>
+        <Slot id="sv2#area1#page4#enu4#msfld2#slot8" name="2" label="true" output="true"/>
+        <Slot id="sv2#area1#page4#enu4#msfld2#slot9" name="3" label="true" output="true"/>
+        <Slot id="sv2#area1#page4#enu4#msfld2#slot10" name="4" label="true" output="true"/>
+        <Slot id="sv2#area1#page4#enu4#msfld2#slot11" name="5" label="true" output="true"/>
+        <Slot id="sv2#area1#page4#enu4#msfld2#slot12" name="0" label="true" output="true"/>
+      </MultiSelectionField>
+      <Link id="sv2#area1#page4#enu4#ln10" name="Flow5" to="sv2#area1#miu3" automaticCoupling="true" type="normal" validate="true"/>
+      <Link id="sv2#area1#page4#enu4#ln11" name="Flow6" to="sv2#area1#miu3" automaticCoupling="true" type="transport" validate="true" gr:bendpoints="130,-16,-170,54"/>
+    </EntryUnit>
+  </ContentUnits>
+  <layout:Grid containerType="grid">
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area1#page4#dau2">
+          <layout:Attribute attribute="ent1#att2"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+    <layout:Row>
+      <layout:Cell colspan="12">
+        <layout:Unit unitId="sv2#area1#page4#enu4">
+          <layout:Field field="sv2#area1#page4#enu4#msfld2"/>
+          <layout:Link link="sv2#area1#page4#enu4#ln10"/>
+        </layout:Unit>
+      </layout:Cell>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+      <layout:Cell/>
+    </layout:Row>
+  </layout:Grid>
+</Page>
